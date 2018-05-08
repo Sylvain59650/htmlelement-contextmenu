@@ -1,6 +1,6 @@
 {
   "name": "htmlelement-contextmenu",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "make a contextmenu on a html element",
   "main": "distrib/htmlelement-contextmenu.min.js",
   "scripts": {
