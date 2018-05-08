@@ -1,0 +1,38 @@
+<html>
+
+<body>
+  <link rel="stylesheet" href="htmlelement-contextmenu.min.css" />
+  <script src="htmlelement-contextmenu.min.js"></script>
+  <input type="text" id="t1" />
+  <div id="div1">right click here</div>
+  <script>
+    var menu = {
+      menuId: "menu1",
+      targetId: "#div1",
+      items: [{
+        key: "cut",
+        label: "cut",
+        fn: () => console.log("cut")
+      }, {
+        label: "sep"
+      }, {
+        key: "copy",
+        label: "Copy",
+        fn: () => console.log("copy")
+      }, {
+        key: "paste",
+        label: "Paste",
+        showing: () => {
+          let val = document.querySelector("#t1");
+          return (val.value < 5) ? "cmDisabled" : "-cmDisabled";
+        },
+        fn: () => console.log("paste")
+      }]
+    };
+
+    CM(menu);
+  </script>
+
+</body>
+
+</html>
