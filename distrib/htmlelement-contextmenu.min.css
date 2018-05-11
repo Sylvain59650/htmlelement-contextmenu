@@ -3,7 +3,7 @@
   display: inline-block;
   min-width: 13em;
   max-width: 26em;
-  padding: .25em 0;
+  padding: 0px;
   margin: .3em;
   width: 208px;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
@@ -18,33 +18,19 @@
   overflow: hidden;
 }
 
-.cmIcon::before {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 2em;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 1;
-  color: #2980b9;
-  text-align: center;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  -o-transform: translateY(-50%);
-  transform: translateY(-50%);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.contextmenu-shortcut {
+  float: right;
+}
+
+.cmIcon {
+  margin-left: 0px;
 }
 
 .cmItem {
   position: relative;
-  padding: .2em 2em;
+  padding: 1px 1px 5px 10px;
+  margin-left: 30px;
   color: #2f2f2f;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
   background-color: #fff;
 }
 
@@ -62,6 +48,9 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
-.cmDisabled {
-  color: red;
+.cmDisabled,
+.cmDisabled:hover {
+  color: gray;
+  background-color: #fff;
+  cursor: not-allowed;
 }

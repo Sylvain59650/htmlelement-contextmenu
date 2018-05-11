@@ -13,6 +13,7 @@ const chemins = {
 
 gulp.task("htmlelement-contextmenu.min.js", () => {
   return gulp.src([
+      "node_modules/web-browser-detection/distrib/web-browser-detection.min.js",
       "src/**.js"
     ])
     .pipe(concat("htmlelement-contextmenu.min.js"))
@@ -39,9 +40,8 @@ gulp.task("css", () => {
 
 gulp.task("index.html", () => {
   return gulp.src([
-      "src/**.html"
+      "src/**.html", "src/*.png"
     ])
-    .pipe(concat("index.html"))
     .pipe(debug())
     .pipe(gulp.dest(chemins.distrib))
 });
@@ -53,7 +53,7 @@ gulp.task("watch:css", function() {
 });
 
 gulp.task("watch:html", function() {
-  watch("./src/index.html", function() {
+  watch(["./src/index.html", "./src/*.png"], function() {
     gulp.run("index.html");
   });
 });

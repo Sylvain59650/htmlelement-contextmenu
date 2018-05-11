@@ -1,36 +1,113 @@
 <html>
 
+<head>
+  <style>
+    #div2 {
+      float: right
+    }
+    
+    .mnuSpecial:before {
+      content: url("copy.png");
+    }
+    
+    .mnuSpecial {
+      margin-left: 0px !important;
+      padding-left: 0px !important;
+    }
+  </style>
+</head>
+
 <body>
   <link rel="stylesheet" href="htmlelement-contextmenu.min.css" />
   <script src="htmlelement-contextmenu.min.js"></script>
   <input type="text" id="t1" />
   <div id="div1">right click here</div>
+
+  <div id="div2">right click here</div>
+  <button id="btn1" type="button">manuel popup</button>
   <script>
-    var menu = {
+    var menuInfo1 = {
       menuId: "menu1",
       targetId: "#div1",
+      showAccessKey: true,
+      beforeShowing: function() {
+        menu1.menuInfo().items[0].disabled = true;
+      },
       items: [{
         key: "cut",
         label: "cut",
-        fn: () => console.log("cut")
+        class: "mnuSpecial cmIcon",
+        fn: function() {
+          console.log("cut")
+        }
       }, {
         label: "sep"
       }, {
         key: "copy",
         label: "Copy",
-        fn: () => console.log("copy")
+        fn: function() {
+          console.log("copy")
+        }
       }, {
         key: "paste",
         label: "Paste",
-        showing: () => {
+        class: "mnuSpecial cmIcon",
+        accesskey: "h",
+        showing: function() {
           let val = document.querySelector("#t1");
           return (val.value < 5) ? "cmDisabled" : "-cmDisabled";
         },
-        fn: () => console.log("paste")
+        fn: function() {
+          console.log("paste")
+        }
+      }, {
+        key: "disabled",
+        label: "Disabled",
+        disabled: true,
+        fn: function() {
+          console.log("disabled");
+        }
+      }, {
+        key: "custom",
+        label: "custom",
+        disabled: false,
+        html: function() {
+          return "<select><option>1</option><option>2</option></select>";
+        },
+        fn: function() {
+          console.log("custom");
+        }
       }]
     };
 
-    CM(menu);
+    var menu1 = new ContextMenu(menuInfo1);
+    menu1.insertItem({
+      key: "add",
+      label: "add",
+      fn: function() {
+        console.log("add")
+      }
+    }, 1);
+
+    var menuInfo2 = {
+      menuId: "menu2",
+      targetId: "#div2",
+      items: [{
+        key: "cut",
+        label: "cut",
+        fn: function() {
+          console.log("cut")
+        }
+      }]
+    }
+
+    var menu2 = new ContextMenu(menuInfo2);
+
+
+    document.querySelector("#btn1").addEventListener("click", function(e) {
+      e.stopImmediatePropagation();
+      menu1.popup(200, 250);
+    });
   </script>
 
 </body>

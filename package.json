@@ -36,5 +36,8 @@
     "gulp-debug": "^3.2.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^5.0.0"
+  },
+  "dependencies": {
+    "web-browser-detection": "^0.9.0"
   }
 }
