@@ -7,6 +7,7 @@
 ![version](https://img.shields.io/npm/v/htmlelement-contextmenu.svg)
 ![package](https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-contextmenu.svg)
 ![dependencies](https://img.shields.io/david/Sylvain59650/htmlelement-contextmenu.svg)
+[![dependencies graph](https://img.shields.io/badge/dependencies-graph-blue.svg)](http://npm.anvaka.com/#/view/2d/htmlelement-contextmenu)
 ![minified](https://img.shields.io/bundlephobia/min/htmlelement-contextmenu.svg)
 ![linter](https://img.shields.io/badge/eslint-ok-blue.svg)
 ![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
