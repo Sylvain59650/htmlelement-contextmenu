@@ -19,7 +19,7 @@ gulp.task("htmlelement-contextmenu.min.js", () => {
     .pipe(concat("htmlelement-contextmenu.min.js"))
     .pipe(babel({
       presets: ["es2015"],
-      compact: false
+      compact: true
     }))
     .pipe(debug())
     //.pipe(uglify())
