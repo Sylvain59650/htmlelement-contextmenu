@@ -1,6 +1,6 @@
 {
   "name": "htmlelement-contextmenu",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "description": "make a contextmenu on a html element",
   "main": "distrib/htmlelement-contextmenu.min.js",
   "scripts": {
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/Sylvain59650/htmlelement-contextmenu/issues"
   },
-  "homepage": "https://github.com/Sylvain59650/htmlelement-contextmenu#readme",
+  "homepage": "https://sylvain59650.github.io/htmlelement-contextmenu/",
   "devDependencies": {
     "babel-core": "^6.26.2",
     "babel-plugin-remove-comments": "^2.0.0",
