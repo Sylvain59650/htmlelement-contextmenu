@@ -1,19 +1,19 @@
 # htmlelement-contextmenu
 
 
-<div style="display:inline">
-
-[![build](https://travis-ci.org/Sylvain59650/htmlelement-contextmenu.png?branch=master)](https://travis-ci.org/Sylvain59650/htmlelement-contextmenu)
-![version](https://img.shields.io/npm/v/htmlelement-contextmenu.svg)
-![package](https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-contextmenu.svg)
-![dependencies](https://img.shields.io/david/Sylvain59650/htmlelement-contextmenu.svg)
-[![dependencies graph](https://img.shields.io/badge/dependencies-graph-blue.svg)](http://npm.anvaka.com/#/view/2d/htmlelement-contextmenu)
-![minified](https://img.shields.io/bundlephobia/min/htmlelement-contextmenu.svg)
-![linter](https://img.shields.io/badge/eslint-ok-blue.svg)
-![tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
-![license](https://img.shields.io/npm/l/htmlelement-contextmenu.svg)
-[![hits](http://hits.dwyl.com/Sylvain59650/htmlelement-contextmenu.svg)](http://hits.dwyl.com/Sylvain59650/htmlelement-contextmenu)
-</div>
+ <h1 class="title">htmlelement-contextmenu</h1>
+    <div style="display:inline">
+      <a target="_blank" title="build" href="https://travis-ci.org/Sylvain59650/htmlelement-contextmenu"><img src="https://travis-ci.org/Sylvain59650/htmlelement-contextmenu.png?branch=master" /></a>
+      <a target="_blank" title="version" href="https://www.npmjs.com/package/htmlelement-contextmenu"><img src="https://img.shields.io/npm/v/htmlelement-contextmenu.svg" /></a>
+      <a target="_blank" title="package" href="https://github.com/Sylvain59650/htmlelement-contextmenu"><img src="https://img.shields.io/github/package-json/v/Sylvain59650/htmlelement-contextmenu.svg" /></a>
+      <a target="_blank" title="dependencies" href="https://david-dm.org/Sylvain59650/htmlelement-contextmenu"><img src="https://img.shields.io/david/Sylvain59650/htmlelement-contextmenu.svg" /></a>
+      <a target="_blank" title="dependencies graph" href="http://npm.anvaka.com/#/view/2d/htmlelement-contextmenu"><img src="https://img.shields.io/badge/dependencies-graph-blue.svg" /></a>
+      <img src="https://img.shields.io/bundlephobia/min/htmlelement-contextmenu.svg" />
+      <img src="https://img.shields.io/badge/eslint-ok-blue.svg" />
+      <a target="_blank" title="tests" href="https://sylvain59650.github.io/htmlelement-contextmenu/"><img src="https://img.shields.io/badge/tests-passing-brightgreen.svg" /></a>
+      <img src="https://img.shields.io/npm/l/htmlelement-contextmenu.svg" />
+      <img src="https://hits.dwyl.com/Sylvain59650/htmlelement-contextmenu.svg" />
+    </div>
 
  <div class="Note" style="color:orange;font-style:italic">
  
