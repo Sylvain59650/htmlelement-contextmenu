@@ -1,12 +1,12 @@
 ﻿const babel = require("gulp-babel");
 const gulp = require("gulp");
 const concat = require("gulp-concat");
-const debug = require("gulp-debug");
 const watch = require("gulp-watch");
 
 const chemins = {
   sources: "./src/",
-  distrib: "./distrib/"
+  distrib: "./distrib/",
+  demo: "docs/demo/node_modules/htmlelement-contextmenu/distrib/"
 };
 
 
@@ -21,20 +21,27 @@ gulp.task("htmlelement-contextmenu.min.js", () => {
       presets: ["es2015"],
       compact: true
     }))
-    .pipe(debug())
-    //.pipe(uglify())
-    //.on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString()); })
-    // .pipe(umd())
     .pipe(gulp.dest(chemins.distrib))
 });
 
+gulp.task("htmlelement-contextmenu.js", () => {
+  return gulp.src([
+      "node_modules/web-browser-detection/distrib/web-browser-detection.min.js",
+      "src/**.js"
+    ])
+    .pipe(concat("htmlelement-contextmenu.min.js"))
+    .pipe(babel({
+      presets: ["es2015"],
+      compact: false
+    }))
+    .pipe(gulp.dest(chemins.demo))
+});
 
 gulp.task("css", () => {
   return gulp.src([
       "src/**.css"
     ])
     .pipe(concat("htmlelement-contextmenu.min.css"))
-    .pipe(debug())
     .pipe(gulp.dest(chemins.distrib))
 });
 
@@ -42,7 +49,6 @@ gulp.task("index.html", () => {
   return gulp.src([
       "src/**.html", "src/*.png"
     ])
-    .pipe(debug())
     .pipe(gulp.dest(chemins.distrib))
 });
 
@@ -64,8 +70,14 @@ gulp.task("watch:htmlelement-contextmenu.min.js", function() {
   });
 });
 
+gulp.task("demo", ["htmlelement-contextmenu.js", "css"], () => {
+  return gulp.src([
+      chemins.distrib + "htmlelement-contextmenu.min.css"
+    ])
+    .pipe(gulp.dest(chemins.demo))
+});
 
-gulp.task("default", ["htmlelement-contextmenu.min.js", "index.html", "css"]);
+gulp.task("default", ["htmlelement-contextmenu.min.js", "index.html", "css", "demo"]);
 
 
 gulp.task("all", ["default"]);

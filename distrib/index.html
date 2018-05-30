@@ -19,6 +19,7 @@
 
 <body>
   <link rel="stylesheet" href="htmlelement-contextmenu.min.css" />
+  <script src="../node_modules/web-browser-detection/distrib/web-browser-detection.min.js"></script>
   <script src="htmlelement-contextmenu.min.js"></script>
   <input type="text" id="t1" />
   <div id="div1">right click here</div>
@@ -39,7 +40,20 @@
         class: "mnuSpecial cmIcon",
         fn: function() {
           console.log("cut")
-        }
+        },
+        items: [{
+          key: "cut1",
+          label: "cut1",
+          fn: function() {
+            console.log("cut1")
+          }
+        }, {
+          key: "cut2",
+          label: "cut2",
+          fn: function() {
+            console.log("cut2")
+          }
+        }]
       }, {
         label: "sep"
       }, {
@@ -103,7 +117,7 @@
 
     var menu2 = new ContextMenu(menuInfo2);
 
-
+    menu1.popup(200, 250);
     document.querySelector("#btn1").addEventListener("click", function(e) {
       e.stopImmediatePropagation();
       menu1.popup(200, 250);

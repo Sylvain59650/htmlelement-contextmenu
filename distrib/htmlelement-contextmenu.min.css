@@ -1,4 +1,14 @@
-.contextmenu {
+div.contextmenu {
+  position: absolute;
+  display: inline-block;
+  z-index: 100;
+  overflow: hidden;
+  min-width: 13em;
+  max-width: 26em;
+  min-height: 200px;
+}
+
+ul.contextmenu {
   position: absolute;
   display: inline-block;
   min-width: 13em;
@@ -14,8 +24,10 @@
   border-radius: .2em;
   -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  overflow: hidden;
+  caret-color: #fff;
+  text-shadow: 0 0 0 gray;
+  outline-style: none;
+  color: transparent;
 }
 
 .contextmenu-shortcut {

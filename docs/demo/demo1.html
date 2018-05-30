@@ -1,0 +1,268 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="../3parts/iziToast.min.css?v=130c">
+  <script src="../3parts/iziToast.min.js?v=130c" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="demo.css" />
+  <style>
+    #t1 {
+      margin: 10px;
+      width: 200px;
+    }
+    
+    #div1 {
+      background-color: cornflowerblue;
+      min-height: 50px;
+      min-width: 400px;
+      max-width: 400px;
+      border-radius: 10px;
+      padding: 10px;
+    }
+    
+    #sp {
+      background-color: blue;
+      color: white;
+    }
+    
+    #ss {
+      background-color: teal;
+      color: white;
+    }
+    
+    #div2 {
+      float: left;
+      background-color: bisque;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    #div3 {
+      float: right;
+      background-color: sienna;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    #div4 {
+      float: right;
+      background-color: sienna;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    
+    .mnuSpecial {
+      margin-left: 0px !important;
+      padding-left: 0px !important;
+    }
+    
+    .mnuCopy:before {
+      content: url("copy.png");
+    }
+    
+    .mnuCut:before {
+      content: url("../img/cut.png")
+    }
+    
+    .mnuAdd:before {
+      content: url("../img/add.png")
+    }
+    
+    .mnuClean:before {
+      content: url("../img/clean.png")
+    }
+    
+    .mnuPrint:before {
+      content: url("../img/print.png")
+    }
+    
+    .mnuSearch:before {
+      content: url("../img/search.png")
+    }
+  </style>
+</head>
+
+<body>
+  <script src="node_modules/htmlelement-contextmenu/distrib/htmlelement-contextmenu.min.js"></script>
+  <link href="node_modules/htmlelement-contextmenu/distrib/htmlelement-contextmenu.min.css" rel="stylesheet" />
+
+  <fieldset>
+    <input type="text" id="t1" placeholder="no special context menu here" />
+    <div id="div1">
+      <div>right click here</div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vulputate nisl quis sem sagittis ultricies. Sed sit amet turpis eget augue bibendum finibus. Vestibulum vitae libero id purus aliquam eleifend tempor id orci.
+      Sed tortor nunc, <span id="sp">blandit euismod urna ac</span>, rhoncus fringilla nibh. Morbi pretium massa vel lacus faucibus ultrices. Pellentesque porttitor magna at nibh ultrices<span id="ss">gravida</span>. Class aptent taciti sociosqu ad litora
+      torquent per conubia nostra, per inceptos himenaeos.
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <div id="div2">Another context menu here</div>
+    <div id="div3">Another context menu here</div>
+  </fieldset>
+
+  <fieldset>
+    <button id="btn1" type="button">manuel popup</button>
+  </fieldset>
+
+  <fieldset>
+    <div id="div4"></div>
+  </fieldset>
+
+  <script>
+    function trace(msg) {
+      iziToast.success({
+        title: "Event",
+        message: msg,
+        timeout: 3500,
+        backgrouncColor: "gray"
+      });
+    }
+
+    var menuInfo1 = {
+      menuId: "menu1",
+      targetId: "#div1,#ss",
+      showAccessKey: true,
+      items: [{
+        key: "cut",
+        label: "cut",
+        class: "mnuSpecial mnuCut",
+        fn: function() {
+          trace("cut")
+        },
+        items: [{
+          key: "clean",
+          class: "mnuSpecial mnuClean",
+          label: "Clean",
+          fn: function() {
+            trace("Clean")
+          }
+        }, {
+          key: "add",
+          class: "mnuSpecial mnuAdd",
+          label: "Add",
+          fn: function() {
+            trace("Add")
+          }
+        }]
+      }, {
+        label: "sep"
+      }, {
+        key: "search",
+        class: "mnuSpecial mnuSearch",
+        label: "Search",
+        fn: function() {
+          trace("search")
+        }
+      }, {
+        key: "print",
+        label: "Print",
+        class: "mnuSpecial mnuPrint",
+        accesskey: "p",
+        showing: function() {
+          let val = document.querySelector("#t1");
+          return (val.value < 5) ? "cmDisabled" : "-cmDisabled";
+        },
+        fn: function() {
+          trace("Print")
+        }
+      }]
+    };
+
+    var menu1 = new ContextMenu(menuInfo1);
+    // menu1.insertItem({
+    //   key: "add",
+    //   label: "add",
+    //   fn: function() {
+    //     trace("add")
+    //   }
+    // }, 1);
+
+    var menuInfo2 = {
+      menuId: "menu2",
+      targetId: "#div2,#div3",
+      items: [{
+        key: "item1",
+        label: "item 1",
+        fn: function() {
+          trace("item1")
+        }
+      }, {
+        key: "item2",
+        label: "item 2",
+        fn: function() {
+          trace("item2")
+        }
+      }, {
+        key: "item3",
+        label: "item 3",
+        fn: function() {
+          trace("item3")
+        }
+      }, {
+        key: "item4",
+        label: "item 4",
+        fn: function() {
+          trace("item4")
+        }
+      }]
+    }
+
+    var menu2 = new ContextMenu(menuInfo2);
+
+
+
+
+    var menuInfo4 = {
+      menuId: "menu4",
+      targetId: "#div4",
+      showAccessKey: true,
+      beforeShowing: function() {
+        menu4.menuInfo().items[0].disabled = true;
+      },
+      items: [{
+        key: "cut",
+        label: "cut",
+        class: "mnuSpecial mnuCut",
+        fn: function() {
+          trace("cut")
+        },
+        items: [{
+          key: "clean",
+          class: "mnuSpecial mnuClean cmDisabled",
+          label: "Clean",
+          fn: function() {
+            trace("Clean")
+          }
+        }, {
+          key: "add",
+          class: "mnuSpecial mnuAdd",
+          label: "Add",
+          fn: function() {
+            trace("Add")
+          }
+        }]
+      }, {
+        label: "sep"
+      }, {
+        key: "search",
+        class: "mnuSpecial mnuSearch",
+        label: "Search",
+        fn: function() {
+          trace("search")
+        }
+      }]
+    };
+
+
+    var menu4 = new ContextMenu(menuInfo4);
+
+
+
+    document.querySelector("#btn1").addEventListener("click", function(e) {
+      e.stopImmediatePropagation();
+      menu1.popup(200, 250);
+    });
+  </script>
+
+</body>
+
+</html>
