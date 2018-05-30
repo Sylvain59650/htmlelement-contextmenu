@@ -6,7 +6,7 @@ const watch = require("gulp-watch");
 const chemins = {
   sources: "./src/",
   distrib: "./distrib/",
-  demo: "docs/demo/node_modules/htmlelement-contextmenu/distrib/"
+  demo: "docs/demo/modules/htmlelement-contextmenu/distrib/"
 };
 
 
