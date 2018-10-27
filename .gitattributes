@@ -1,0 +1,5 @@
+src/* linguist-vendored=true
+distrib/*.css linguist-vendored=true
+distrib/*.png  linguist-vendored=true
+docs/*  linguist-vendored=true
+tests/* linguist-vendored=true

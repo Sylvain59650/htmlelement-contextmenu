@@ -8,7 +8,7 @@
 <body>
   <div class="breadcrumb">
     <a href="https://www.npmjs.com/package/htmlelement-contextmenu" title="NPM">
-      <img src="../img/npm.png" height="32"></a>
+      <img src="https://sylvain59650.github.io/demonstrator/img/npm.png" height="32"></a>
     <a href="https://github.com/Sylvain59650/htmlelement-contextmenu" title="GitHub"><img src="https://github.com/favicon.ico" height="32" /></a>
   </div>
 
@@ -30,90 +30,141 @@
 
   <h1>ContextMenu</h1>
   <nav>
-    <li><a href="#">constructor (menuInfo)</a></li>
-    <li><a href="#">insertItem(menuItem)</a></li>
-    <li><a href="#">removeItem(menuItem)</a></li>
-    <li><a href="#">popup(x,y)</a></li>
+    <li><a href="#constructor">constructor (menuInfo)</a></li>
+    <li><a href="#insertItem">insertItem(menuItem)</a></li>
+    <li><a href="#removeItem">removeItem(menuItem)</a></li>
+    <li><a href="#popup">popup(x,y)</a></li>
+    <li><a href="#usage">Usage</a></li>
   </nav>
 
 
-  <table>
-    <tr>
-      <td>object menuItem {</td>
-    </tr>
-    <tr>
-      <td> key: </td>
-      <td>html id of the menu item</td>
-    </tr>
-    <tr>
-      <td>label:</td>
-      <td>Text of menu item</td>
-    </tr>
-    <tr>
-      <td> class:</td>
-      <td>Css class of menu item</td>
-    </tr>
-    <tr>
-      <td> fn: </td>
-      <td>function to call when the menu item is selected</td>
-    </tr>
-    <tr>
-      <td> accesskey:</td>
-      <td>shortcut key to select the menu item</td>
-    </tr>
-    <tr>
-      <td> showing:</td>
-      <td>function call to determine the css class of menu item WHEN showing menu</td>
-    </tr>
-    <tr>
-      <td> disabled:</td>
-      <td>bool to active or inactive the menu item</td>
-    </tr>
-    <tr>
-      <td>}</td>
-      <td></td>
-    </tr>
-  </table>
+  <article id="constructor">
+    <h2>constructor</h2>
+    <div class="description">
+      make a new instance of context menu.
+    </div>
+    <div class="example">
+      <code>
+      var menu=new ContextMenu(menuInfo);
+    </code>
+    </div>
+    <table>
+      <tr>
+        <td>object menuInfo {</td>
+      </tr>
+      <tr>
+        <td>menuId:</td>
+        <td>html id of the menu</td>
+      </tr>
+      <tr>
+        <td>targetId:</td>
+        <td>id of the html element on which the context menu should be created</td>
+      </tr>
+      <tr>
+        <td>showAccessKey:</td>
+        <td>bool to show shortcut in context menu</td>
+      </tr>
+      <tr>
+        <td>beforeShowing:</td>
+        <td>function called before showing context menu. This function can update items before showing</td>
+      </tr>
+      <tr>
+        <td>items:</td>
+        <td>array of menuItems</td>
+      </tr>
+      <tr>
+        <td>}</td>
+        <td>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <td>object menuItem {</td>
+      </tr>
+      <tr>
+        <td> key: </td>
+        <td>html id of the menu item</td>
+      </tr>
+      <tr>
+        <td>label:</td>
+        <td>Text of menu item</td>
+      </tr>
+      <tr>
+        <td> class:</td>
+        <td>Css class of menu item</td>
+      </tr>
+      <tr>
+        <td> fn: </td>
+        <td>function to call when the menu item is selected</td>
+      </tr>
+      <tr>
+        <td> accesskey:</td>
+        <td>shortcut key to select the menu item</td>
+      </tr>
+      <tr>
+        <td> showing:</td>
+        <td>function call to determine the css class of menu item WHEN showing menu</td>
+      </tr>
+      <tr>
+        <td> disabled:</td>
+        <td>bool to active or inactive the menu item</td>
+      </tr>
+      <tr>
+        <td>}</td>
+        <td></td>
+      </tr>
+    </table>
 
 
-  <table>
-    <tr>
-      <td>object menuInfo {</td>
-    </tr>
-    <tr>
-      <td>menuId:</td>
-      <td>html id of the menu</td>
-    </tr>
-    <tr>
-      <td>targetId:</td>
-      <td>id of the html element on which the context menu should be created</td>
-    </tr>
-    <tr>
-      <td>showAccessKey:</td>
-      <td>bool to show shortcut in context menu</td>
-    </tr>
-    <tr>
-      <td>beforeShowing:</td>
-      <td>function called before showing context menu. This function can update items before showing</td>
-    </tr>
-    <tr>
-      <td>items:</td>
-      <td>array of menuItems</td>
-    </tr>
-    <tr>
-      <td>}</td>
-      <td>
-    </tr>
-  </table>
+  </article>
 
 
-  <h2>Usage</h2>
-  <xmp><code>
-        <link rel="stylesheet" href="node_modules/htmlelement-contextmenu/distrib/htmlelement-contextmenu.min.css" />
-        <script src="node_modules/htmlelement-contextmenu/distrib/htmlelement-contextmenu.min.js"></script>
-    
-         <div id="div1">right click here</div>
-        <script>
+  <article id="insertItem">
+    <h2>insertItem</h2>
+    <p class="signature"> insertItem(menuItem, position)</p>
+    <div class="description">
+      insert a menuItem in a menu at position
+    </div>
+    <div class="example">
+      <code>
+        var menu=new ContextMenu(menuInfo);
+        menu.insertItem({},2);
+      </code>
+    </div>
+  </article>
+
+  <article id="removeItem">
+    <h2>removeItem</h2>
+    <p class="signature"> removeItem(menuItem)</p>
+    <div class="description">
+      Remove a menuItem outside the menu
+    </div>
+    <div class="example">
+      <code>
+        var menu=new ContextMenu(menuInfo);
+        var menuInfo=menuInfo.items[2];
+        menu.removeItem(menuInfo);
+      </code>
+    </div>
+  </article>
+
+  <article id="popup">
+    <h2>popup</h2>
+    <p class="signature">popup(x,y)</p>
+    <div class="description">show the context menu at position (x,y)</div>
+    <div class="example">
+      var menu=new ContextMenu(menuInfo); menu.popup(200,300);
+    </div>
+  </article>
+  <article id="usage">
+    <h2>Usage</h2>
+    <xmp>
+      <link rel="stylesheet" href="node_modules/htmlelement-contextmenu/distrib/htmlelement-contextmenu.min.css" />
+      <script src="node_modules/htmlelement-contextmenu/distrib/htmlelement-contextmenu.min.js"></script>
+
+      <div id="div1">right click here</div>
+      <script>
         var menuInfo = {
           menuId: "menu1",
           targetId: "#div1",
@@ -137,12 +188,12 @@
             fn: () => console.log("paste")
           }]
         };
-    
-        var menu = new ContextMenu(menuInfo);
-        </script>
-    
- </code></xmp>
 
+        var menu = new ContextMenu(menuInfo);
+      </script>
+
+    </xmp>
+  </article>
 
 </body>
 
