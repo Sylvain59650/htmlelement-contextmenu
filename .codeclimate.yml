@@ -39,3 +39,10 @@ exclude_patterns:
 - "distrib/"
 - "node_modules/"
 - "gulpfile.js"
+- ".eslint*"
+- "git*"
+- "npm*"
+- "LICENSE"
+- "README*"
+- ".codeclimate*
+- "travis*"
