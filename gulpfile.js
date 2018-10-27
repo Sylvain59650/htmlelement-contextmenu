@@ -2,6 +2,7 @@
 const gulp = require("gulp");
 const concat = require("gulp-concat");
 const watch = require("gulp-watch");
+const cleanCSS = require("gulp-clean-css");
 
 const chemins = {
   sources: "./src/",
@@ -19,7 +20,10 @@ gulp.task("htmlelement-contextmenu.min.js", () => {
     .pipe(concat("htmlelement-contextmenu.min.js"))
     .pipe(babel({
       presets: ["es2015"],
-      compact: true
+      comments: false,
+      compact: true,
+      minified: true,
+      plugins: ["minify-mangle-names"]
     }))
     .pipe(gulp.dest(chemins.distrib))
 });
@@ -32,7 +36,10 @@ gulp.task("htmlelement-contextmenu.js", () => {
     .pipe(concat("htmlelement-contextmenu.min.js"))
     .pipe(babel({
       presets: ["es2015"],
-      compact: false
+      comments: false,
+      minified: false,
+      compact: false,
+      plugins: ["minify-mangle-names"]
     }))
     .pipe(gulp.dest(chemins.demo))
 });
@@ -42,6 +49,7 @@ gulp.task("css", () => {
       "src/**.css"
     ])
     .pipe(concat("htmlelement-contextmenu.min.css"))
+    .pipe(cleanCSS())
     .pipe(gulp.dest(chemins.distrib))
 });
 
