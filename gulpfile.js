@@ -67,6 +67,7 @@ gulp.task("watch:html", function() {
 gulp.task("watch:htmlelement-contextmenu.min.js", function() {
   watch("./src/**.js", function() {
     gulp.run("htmlelement-contextmenu.min.js");
+    gulp.run("demo");
   });
 });
 
